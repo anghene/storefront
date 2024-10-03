@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     fetchProducts() {
-      fetch("http://localhost:5000/products")
+      fetch("https://localhost:5656/products")
         .then((response) => response.json())
         .then((data) => {
           this.products = data;
@@ -66,7 +66,7 @@ export default {
         });
     },
     saveProduct() {
-      const url = this.product._id ? `http://localhost:5000/products/${this.product._id}` : "http://localhost:5000/products";
+      const url = this.product._id ? `https://localhost:5656/products/${this.product._id}` : "https://localhost:5656/products";
       const method = this.product._id ? "PUT" : "POST";
 
       fetch(url, {
@@ -88,7 +88,7 @@ export default {
       this.product = { ...prod };
     },
     deleteProduct(id) {
-      fetch(`http://localhost:5000/products/${id}`, {
+      fetch(`https://localhost:5656/products/${id}`, {
         method: "DELETE",
       })
         .then(() => {
